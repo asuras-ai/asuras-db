@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: tradingdb
+      POSTGRES_USER: asuras
+      POSTGRES_PASSWORD: asuras_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8050:8050"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://asuras:asuras_password@db/tradingdb
+
+volumes:
+  postgres_data:

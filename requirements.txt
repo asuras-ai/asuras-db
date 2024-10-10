@@ -1,0 +1,6 @@
+psycopg2-binary==2.9.3
+sqlalchemy==1.4.39
+dash==2.6.0
+pandas==1.4.3
+yfinance==0.1.74
+ccxt==2.0.81
